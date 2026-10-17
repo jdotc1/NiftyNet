@@ -1,3 +1,13 @@
+## About this fork
+
+This is a development fork of [NifTK/NiftyNet](https://github.com/NifTK/NiftyNet), the TensorFlow-based platform for medical-image CNN research. Its network components, configuration files, and pretrained-model workflows remain useful references for understanding or revisiting analyses built around NiftyNet.
+
+**Upstream is archived and no longer actively maintained.** Its original status notice and recommendation to explore MONAI remain below. [Fork PR #1](https://github.com/jdotc1/NiftyNet/pull/1) proposes TAR destination and member-type validation; it was open in this fork on 17 October 2026.
+
+Consult the [upstream documentation](http://niftynet.readthedocs.io/en/dev/installation.html) and preserved installation requirements when working with historical environments. [Compare the default branch with upstream](https://github.com/jdotc1/NiftyNet/compare/NifTK:dev...jdotc1:dev). The original project description, research-use limitations, citations, and license follow.
+
+---
+
 # Status update - 2020-04-21
 
 ⚠️ **NiftyNet is not actively maintained anymore**. We have learned a lot in our journey and decided to redirect most of the development efforts towards [MONAI](https://github.com/Project-MONAI/MONAI/).
