@@ -144,9 +144,15 @@ def download_and_decompress(url, download_path, verbose=True):
         urlretrieve(url, downloaded_file)
 
     # Decompress and extract all files to the specified local path
-    tar = tarfile.open(downloaded_file, "r")
-    tar.extractall(download_path)
-    tar.close()
+    with tarfile.open(downloaded_file, "r") as tar:
+        root = os.path.realpath(download_path)
+        members = tar.getmembers()
+        for member in members:
+            target = os.path.realpath(os.path.join(root, member.name))
+            if (not (member.isfile() or member.isdir()) or
+                    not (target == root or target.startswith(os.path.join(root, "")))):
+                raise ValueError("Unsafe archive member: {}".format(member.name))
+        tar.extractall(download_path, members=members)
 
     # Remove the downloaded file
     shutil.rmtree(temp_folder, ignore_errors=True)
